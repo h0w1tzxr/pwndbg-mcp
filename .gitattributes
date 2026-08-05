@@ -1,0 +1,28 @@
+# Normalize line endings: store LF in the repo, check out LF on every platform.
+* text=auto eol=lf
+
+# Source files: explicit text plus language-aware diff drivers.
+*.py        text diff=python
+*.md        text
+*.toml      text
+*.yaml      text
+*.yml       text
+*.json      text
+*.sh        text eol=lf
+*.cfg       text
+*.ini       text
+
+# Lockfiles: track them, but don't show line-by-line diffs.
+# uv.lock is ~394 KB; treating it as binary makes `git log -p` and PR-style
+# diff views sane while still letting `git diff` summarize changes.
+uv.lock     binary
+
+# Binary blobs (in case any land in the tree later).
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.so        binary
+*.pyc       binary
+*.pyo       binary
